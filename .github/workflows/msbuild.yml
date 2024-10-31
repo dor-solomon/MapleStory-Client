@@ -31,8 +31,17 @@ jobs:
       run: |
         msbuild MapleStory.sln /p:Configuration=Release /p:WindowsSDKVersion=8.1 /p:VisualStudioVersion=14.0
 
+    - name: List Output Directory
+      run: |
+        dir bin
+        dir bin\Release
+        dir bin\Debug
+        x64\obj-Release\
+        x64\Release\
+        x64
+
     - name: Upload Artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: MapleStoryExecutable
-        path: bin\Release\MapleStory.exe
+        path: MapleStory.exe
