@@ -15,8 +15,7 @@ jobs:
       uses: microsoft/setup-msbuild@v2
       with:
         vs-version: '14.0'
-        configuration: 'Release'
 
     - name: Build the project
       run: |
-        msbuild MapleStory.sln /p:Configuration=Release /p:Platform=Win32 /p:WindowsSDKVersion=8.1 /p:VisualStudioVersion=14.0
+        msbuild MapleStory.sln /p:Configuration=Release /p:WindowsSDKVersion=8.1 /p:VisualStudioVersion=14.0
