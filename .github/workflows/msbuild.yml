@@ -1,0 +1,22 @@
+name: Build Windows Project
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Visual Studio
+      uses: microsoft/setup-msbuild@v2
+      with:
+        vs-version: '14.0'
+        configuration: 'Release'
+
+    - name: Build the project
+      run: |
+        msbuild MapleStory.sln /p:Configuration=Release /p:Platform=Win32 /p:WindowsSDKVersion=8.1 /p:VisualStudioVersion=14.0
